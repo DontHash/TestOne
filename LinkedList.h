@@ -10,6 +10,8 @@ class Node
         Node(int d,Node*next): data(d),next(next) {}
 };
 
+
+
 class LinkedList
 {
     private:
@@ -18,12 +20,12 @@ class LinkedList
     
     public:
         LinkedList();
-        ~LinkedList();
+       
 
         void add(Node *pred,int data);
         void addToHead(int data);
         void addToTail(int data);
-
+        void Traverse();
         bool remove(int &data);
         bool removeFromHead(int &data);
         bool removeFromTail(int &data);
