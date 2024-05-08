@@ -1,3 +1,4 @@
+#pragma once
 #include "LinkedList.h"
 class Istack
 {
