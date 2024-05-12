@@ -12,7 +12,7 @@ bool LinkedListStack::isEmpty()
     return false;
 }
 
-void LinkedListStack::push(int data)
+bool LinkedListStack::push(int data)
 {
     if(!isEmpty())
     {
@@ -20,7 +20,7 @@ void LinkedListStack::push(int data)
     }
 }
 
-void LinkedListStack::pop(int &data)
+bool LinkedListStack::pop(int &data)
 {
     if(!isEmpty())
     {
@@ -30,7 +30,7 @@ void LinkedListStack::pop(int &data)
     std::cout<<"The Stack is empty \n";
 }
 
-void LinkedListStack::top(int &data)
+bool LinkedListStack::top(int &data)
 {
     if(!isEmpty())
     {
