@@ -1,5 +1,5 @@
 #include "iStack.h"
-
+#include <iostream>
 ArrayStack::ArrayStack(int size)
     : size(size), topindex(-1), data(new int[size]) {}
 
@@ -9,6 +9,14 @@ bool ArrayStack::isEmpty()
     {
         return true;
     }
+    else
+        return false;
+}
+
+bool ArrayStack::isFull()
+{
+    if (topindex >= size - 1)
+        return true;
     else
         return false;
 }
@@ -50,4 +58,19 @@ bool ArrayStack::pop(int &element)
 
         return false;
     }
+}
+
+void ArrayStack::traverse()
+{
+
+    if(!isEmpty())
+    {
+        int i;
+    for(i=0;i<=topindex;i++)
+    {
+        std::cout<<" "<<data[i];
+    }
+    }
+    else
+    std::cout<<"The Stack is empty \n";
 }

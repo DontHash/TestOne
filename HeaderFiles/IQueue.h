@@ -7,12 +7,12 @@ class IQueue
 public:
     IQueue() {}
     ~IQueue() {}
-    virtual void enQueue(int data) = 0;
-    virtual void deQueue(int &data) = 0;
-    virtual void isEmpty() = 0;
-    virtual void isFull() = 0;
-    virtual void front(int &data) = 0;
-    virtual void rear(int &data) = 0;
+    virtual void enQueue(int element) = 0;
+    virtual void deQueue(int &element) = 0;
+    virtual bool isEmpty() = 0;
+    virtual bool isFull() = 0;
+    virtual void front(int &element) = 0;
+    virtual void rear(int &element) = 0;
 };
 
 class LinkedListQueue : public IQueue
@@ -23,15 +23,15 @@ private:
 public:
     LinkedListQueue() {}
     ~LinkedListQueue() {}
-    void enQueue(int data);
-    void deQueue(int &data);
-    void front(int &data);
-    void rear(int &data);
-    void isEmpty();
+    void enQueue(int element);
+    void deQueue(int &element);
+    void front(int &element);
+    void rear(int &element);
+    bool isEmpty();
     void traverse();
 };
 
-class Queue : public IQueue
+class ArrayQueue : public IQueue
 {
 private:
     int size;
@@ -39,12 +39,12 @@ private:
     int *data;
 
 public:
-    Queue(int x) : size(x), topindex(-1), data(new int[size]) {}
+    ArrayQueue(int x) : size(x), topindex(-1), data(new int[size]) {}
 
-    void enQueue(int data);
-    void deQueue(int &data);
-    void isEmpty();
-    void isFull();
-    void front(int &data);
-    void rear(int &data);
+    void enQueue(int element);
+    void deQueue(int &element);
+    bool isEmpty();
+    bool isFull();
+    void front(int &element);
+    void rear(int &element);
 };

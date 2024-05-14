@@ -30,6 +30,7 @@ class LinkedList
         bool removeFromHead(int &data);
         bool removeFromTail(int &data);
         bool isEmpty();
-        bool HeadReturn();
+        bool HeadReturn(int &element);
+        bool TailReturn(int &element);
 
 };

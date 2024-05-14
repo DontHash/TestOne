@@ -4,11 +4,12 @@ class Istack
 {
 public:
     Istack();
-    ~Istack();
+    virtual ~Istack();
     virtual bool isEmpty() = 0;
     virtual bool push(int data) = 0;
     virtual bool pop(int &data) = 0;
     virtual bool top(int &data) = 0;
+    virtual void traverse() = 0;
 };
 
 class LinkedListStack : public Istack
@@ -19,11 +20,12 @@ private:
 public:
     LinkedListStack();
 
-    ~LinkedListStack();
+    virtual ~LinkedListStack();
     bool isEmpty();
     bool push(int data);
     bool pop(int &data);
     bool top(int &data);
+    void traverse();
 };
 
 
@@ -36,8 +38,10 @@ class ArrayStack : public Istack
         
         public:
             ArrayStack(int size);
+            bool isFull();
             virtual bool isEmpty() = 0;
             virtual bool push (const int element );
             virtual bool pop (int &element);
             virtual bool top(int &element) const;
+            void traverse();
     };

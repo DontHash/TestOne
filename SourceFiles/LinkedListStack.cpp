@@ -1,6 +1,10 @@
 #include "iStack.h"
 #include "LinkedList.h"
 #include <iostream>
+
+LinkedListStack::LinkedListStack(){}
+LinkedListStack::~LinkedListStack(){}
+
 bool LinkedListStack::isEmpty()
 {
     if(list.isEmpty())
@@ -34,7 +38,7 @@ bool LinkedListStack::top(int &data)
 {
     if(!isEmpty())
     {
-        data = list.HeadReturn();
+        data = list.HeadReturn(data);
     }
 }
 

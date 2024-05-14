@@ -1,29 +1,29 @@
 #include "LinkedList.h"
-#include<iostream>
+#include <iostream>
 
-LinkedList::LinkedList() : HEAD(nullptr),TAIL(nullptr) {}
+LinkedList::LinkedList() : HEAD(nullptr), TAIL(nullptr) {}
 
-bool LinkedList::isEmpty() {
+bool LinkedList::isEmpty()
+{
     return HEAD == nullptr;
 }
 
-void LinkedList::add(Node *pred,int data)
+void LinkedList::add(Node *pred, int data)
 {
     Node *newNode = new Node; // Initialize newNode pointer
     newNode->data = data;
     newNode->next = pred->next;
     pred->next = newNode;
-
 }
 
 void LinkedList::addToHead(int data)
 {
     Node *newNode = new Node; // Initialize newNode pointer
-    if(!isEmpty())
+    if (!isEmpty())
     {
-        
-        newNode->data= data;
-        newNode->next= HEAD;
+
+        newNode->data = data;
+        newNode->next = HEAD;
         HEAD = newNode;
     }
     else
@@ -31,19 +31,18 @@ void LinkedList::addToHead(int data)
         newNode->data = data;
         newNode->next = nullptr;
         HEAD = newNode;
-        TAIL=HEAD;
+        TAIL = HEAD;
     }
-
 }
 
 void LinkedList::addToTail(int data)
 {
-     Node *newNode = new Node; // Initialize newNode pointer
-    if(!isEmpty())
+    Node *newNode = new Node; // Initialize newNode pointer
+    if (!isEmpty())
     {
-        
-        newNode->data= data;
-        newNode->next= nullptr;
+
+        newNode->data = data;
+        newNode->next = nullptr;
         TAIL->next = newNode;
         TAIL = newNode;
     }
@@ -52,22 +51,26 @@ void LinkedList::addToTail(int data)
         newNode->data = data;
         newNode->next = nullptr;
         TAIL = newNode;
-        HEAD=TAIL;
+        HEAD = TAIL;
     }
-
 }
 
-bool LinkedList::removeFromHead(int &data) {
-    if (!isEmpty()) {
+bool LinkedList::removeFromHead(int &data)
+{
+    if (!isEmpty())
+    {
         Node *nodeToDelete = HEAD;
         data = HEAD->data;
         HEAD = HEAD->next;
         delete nodeToDelete;
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             TAIL = nullptr;
         }
         return true;
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
@@ -110,45 +113,63 @@ void LinkedList::Traverse()
         std::cout << "The contents of the list are :  ";
         while (p != NULL)
         {
-            std::cout << p->data ;
-            std::cout<<"  ";
+            std::cout << p->data;
+            std::cout << "  ";
             p = p->next;
         }
     }
 }
 
-bool LinkedList::remove(int &data) {
-    if (isEmpty()) {
+bool LinkedList::remove(int &data)
+{
+    if (isEmpty())
+    {
         return false;
     }
-    
-    if (HEAD->data == data) {
+
+    if (HEAD->data == data)
+    {
         return removeFromHead(data);
     }
-    
+
     Node *p = HEAD;
     Node *temp = nullptr;
-    while (p->next != nullptr && p->data != data) {
+    while (p->next != nullptr && p->data != data)
+    {
         temp = p;
         p = p->next;
     }
-    
-    if (p->data == data) {
-        if (p == TAIL) {
+
+    if (p->data == data)
+    {
+        if (p == TAIL)
+        {
             return removeFromTail(data);
-        } else {
+        }
+        else
+        {
             Node *nodeToDelete = p;
             temp->next = p->next;
             delete nodeToDelete;
             return true;
         }
     }
-    
+
     return false;
 }
 
-bool LinkedList::HeadReturn()
+bool LinkedList::HeadReturn(int &element)
 {
-    if(!isEmpty())
-    return HEAD->data;
+    if (!isEmpty())
+        element = HEAD->data;
+        return true;
+    
+}
+
+bool LinkedList::TailReturn(int &element)
+{
+    if (!isEmpty())
+        element = TAIL->data;
+    return true;
+    
 }
