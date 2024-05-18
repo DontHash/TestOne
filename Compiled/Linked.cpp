@@ -175,7 +175,9 @@ bool LinkedList::remove(int &data) {
 int main()
 {
     LinkedList test;
+    int data;
     test.addToHead(5);
     test.addToHead(6);
-    test.Traverse();
+    test.removeFromTail(data);
+    std::cout<<"Removed :: "<<data;
 }
