@@ -10,7 +10,6 @@ public:
     virtual void enQueue(int element) = 0;
     virtual void deQueue(int &element) = 0;
     virtual bool isEmpty() = 0;
-    virtual bool isFull() = 0;
     virtual void front(int &element) = 0;
     virtual void rear(int &element) = 0;
 };

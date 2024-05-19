@@ -26,11 +26,12 @@ class LinkedList
         void addToHead(int data);
         void addToTail(int data);
         void Traverse();
+        void reverseTraverse();
         bool remove(int &data);
         bool removeFromHead(int &data);
         bool removeFromTail(int &data);
         bool isEmpty();
-        bool HeadReturn(int &element);
+        void HeadReturn(int &element);
         bool TailReturn(int &element);
 
 };
