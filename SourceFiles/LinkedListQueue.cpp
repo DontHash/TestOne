@@ -2,8 +2,6 @@
 #include "LinkedList.h"
 #include <iostream>
 
-LinkedListQueue::LinkedListQueue(){}
-LinkedListQueue::~LinkedListQueue(){}
 
 bool LinkedListQueue::isEmpty()
 {
@@ -49,4 +47,17 @@ void LinkedListQueue::rear(int &element)
 void LinkedListQueue::traverse()
 {
     list.Traverse();
+}
+
+int main()
+{
+    LinkedListQueue Queue;
+    int data;
+    Queue.enQueue(5);
+    Queue.enQueue(6);
+    Queue.enQueue(7);
+    Queue.traverse();
+    Queue.deQueue(data);
+    std::cout<<"\nThe deQueued data is : "<<data<<std::endl;
+    Queue.traverse();
 }
