@@ -1,3 +1,4 @@
+
 #include "iStack.h"
 #include "LinkedList.h"
 #include <iostream>
@@ -18,10 +19,8 @@ bool LinkedListStack::isEmpty()
 
 bool LinkedListStack::push(int data)
 {
-    if(!isEmpty())
-    {
         list.addToHead(data);
-    }
+    
 }
 
 bool LinkedListStack::pop(int &data)
@@ -34,13 +33,14 @@ bool LinkedListStack::pop(int &data)
     std::cout<<"The Stack is empty \n";
 }
 
-bool LinkedListStack::top(int &data)
+void LinkedListStack::top(int &data)
 {
     if(!isEmpty())
     {
-        data = list.HeadReturn(data);
+        list.HeadReturn(data);
     }
 }
+
 
 int main()
 {
