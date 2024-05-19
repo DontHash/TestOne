@@ -3,6 +3,8 @@
 ArrayStack::ArrayStack(int size)
     : size(size), topindex(-1), data(new int[size]) {}
 
+
+
 bool ArrayStack::isEmpty()
 {
     if (topindex < 0)
@@ -33,30 +35,31 @@ bool ArrayStack::push(const int element)
         return false;
 }
 
-bool ArrayStack::top(int &element) const
+void ArrayStack::top(int &element) 
 {
     if (topindex < 0)
     {
-        return false;
+    std::cout<<"The stack is empty ";
     }
     else
     {
         element = data[topindex];
-        return true;
+    
     }
 }
 
-bool ArrayStack::pop(int &element)
+void ArrayStack::pop(int &element)
 {
-    if (top(element))
+    if (!isEmpty())
     {
+        element = data[topindex];
         topindex--;
-        return true;
+        
     }
     else
     {
 
-        return false;
+        
     }
 }
 
@@ -73,4 +76,17 @@ void ArrayStack::traverse()
     }
     else
     std::cout<<"The Stack is empty \n";
+}
+
+int main()
+{  
+    int data;
+    ArrayStack Stack(20);
+    Stack.push(7);
+    Stack.push(6);
+    Stack.push(5);
+    Stack.push(4);
+    Stack.pop(data);
+    std::cout<<"The removed data is "<<data<<std::endl;
+    Stack.traverse();
 }
