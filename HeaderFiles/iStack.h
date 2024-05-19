@@ -6,7 +6,7 @@ public:
   
     virtual bool isEmpty() = 0;
     virtual bool push(int data) = 0;
-    virtual bool pop(int &data) = 0;
+    virtual void pop(int &data) = 0;
     virtual void top(int &data) = 0;
     
 };
@@ -22,7 +22,7 @@ public:
     virtual ~LinkedListStack();
     bool isEmpty();
     bool push(int data);
-    bool pop(int &data);
+    void pop(int &data);
     void top(int &data);
     
 };
@@ -38,9 +38,9 @@ class ArrayStack : public Istack
         public:
             ArrayStack(int size);
             bool isFull();
-            virtual bool isEmpty() = 0;
+            virtual bool isEmpty() ;
             virtual bool push (const int element );
-            virtual bool pop (int &element);
+            virtual void pop (int &element);
             virtual void top(int &element) ;
             void traverse();
     };

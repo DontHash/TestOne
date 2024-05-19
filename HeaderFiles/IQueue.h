@@ -12,6 +12,7 @@ public:
     virtual bool isEmpty() = 0;
     virtual void front(int &element) = 0;
     virtual void rear(int &element) = 0;
+    virtual void traverse() = 0;
 };
 
 class LinkedListQueue : public IQueue
@@ -38,12 +39,14 @@ private:
     int *data;
 
 public:
-    ArrayQueue(int x) : size(x), topindex(-1), data(new int[size]) {}
-
+    ArrayQueue (int x);
+    ~ArrayQueue(); 
     void enQueue(int element);
     void deQueue(int &element);
     bool isEmpty();
     bool isFull();
     void front(int &element);
     void rear(int &element);
+    void traverse();
+    
 };
