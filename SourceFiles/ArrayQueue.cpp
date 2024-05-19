@@ -3,6 +3,7 @@
 
 ArrayQueue::ArrayQueue(int x) : size(x), topindex(-1), data(new int[size]) {}
 
+ArrayQueue::~ArrayQueue() {}
 bool ArrayQueue::isEmpty()
 {
     if (topindex < 0)
@@ -46,6 +47,7 @@ void ArrayQueue::deQueue(int &element)
         {
             data[i] = data[i + 1];
         }
+        topindex--;
     }
     else
     {
@@ -74,3 +76,32 @@ void ArrayQueue::rear(int &element)
     else
         std::cout<<"The stack is empty \n";
 };
+
+void ArrayQueue::traverse()
+{
+    int i;
+    if(!isEmpty())
+    {
+        std::cout<<"The elements in the Queue  : ";
+        for(i=0;i<=topindex;i++)
+        {
+            std::cout<<"  "<<data[i];
+        }
+    }
+    else
+    {
+        std::cout<<"\nThe Queue is empty\n";
+    }
+}
+int main()
+{
+    ArrayQueue Queue(10);
+     int data;
+    Queue.enQueue(5);
+    Queue.enQueue(6);
+    Queue.enQueue(7);
+    Queue.traverse();
+    Queue.deQueue(data);
+    std::cout<<"\nThe deQueued data is : "<<data<<std::endl;
+    Queue.traverse();
+}
