@@ -35,7 +35,7 @@ void ArrayQueue::enQueue(int element)
     {
         throw("The Queue is Full");
     }
-}
+ } 
 
 void ArrayQueue::deQueue(int &element)
 {
