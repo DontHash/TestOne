@@ -1,4 +1,4 @@
-#include "LinkedList.h"
+#include "../HeaderFiles/LinkedList.h"
 #include <iostream>
 
 LinkedList::LinkedList() : HEAD(nullptr), TAIL(nullptr) {}
@@ -120,6 +120,27 @@ void LinkedList::Traverse()
     }
 }
 
+void LinkedList::reverse()
+{
+    if (!isEmpty())
+    {
+        Node *current = HEAD;
+        Node *prev = NULL, *next = NULL;
+
+        while (current != NULL)
+        {
+            // Store next
+            next = current->next;
+            // Reverse the node pointer for the current node
+            current->next = prev;
+            // Advance the pointer one position.
+            prev = current;
+            current = next;
+        }
+        HEAD = prev;
+    }
+}
+
 bool LinkedList::remove(int &data)
 {
     if (isEmpty())
@@ -158,12 +179,10 @@ bool LinkedList::remove(int &data)
     return false;
 }
 
-bool LinkedList::HeadReturn(int &element)
+void LinkedList::HeadReturn(int &element)
 {
     if (!isEmpty())
         element = HEAD->data;
-        return true;
-    
 }
 
 bool LinkedList::TailReturn(int &element)
@@ -171,5 +190,5 @@ bool LinkedList::TailReturn(int &element)
     if (!isEmpty())
         element = TAIL->data;
     return true;
-    
 }
+
