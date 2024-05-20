@@ -26,7 +26,7 @@ class LinkedList
         void addToHead(int data);
         void addToTail(int data);
         void Traverse();
-        void reverseTraverse();
+        void reverse();
         bool remove(int &data);
         bool removeFromHead(int &data);
         bool removeFromTail(int &data);

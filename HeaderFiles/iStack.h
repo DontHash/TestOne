@@ -8,6 +8,7 @@ public:
     virtual bool push(int data) = 0;
     virtual void pop(int &data) = 0;
     virtual void top(int &data) = 0;
+    virtual void traverse() = 0;
     
 };
 
@@ -24,6 +25,7 @@ public:
     bool push(int data);
     void pop(int &data);
     void top(int &data);
+    void traverse();
     
 };
 
