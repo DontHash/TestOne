@@ -68,8 +68,9 @@ void ArrayStack::traverse()
 
     if(!isEmpty())
     {
+        std::cout<<"The elements in the stack : ";
         int i;
-    for(i=0;i<=topindex;i++)
+    for(i=topindex;i>=0;i--)
     {
         std::cout<<" "<<data[i];
     }
